@@ -1,9 +1,10 @@
 import {
-    GET_PRODUCT_SUCCESS,
+    GET_PRODUCT_SUCCESS, GET_ALL_PRODUCTS_SUCCESS, GET_ALL_PRODUCTS_FAIL, UPDATE_INVENTORY_NUMBER_SUCCESS, UPDATE_INVENTORY_NUMBER_FAIL
 } from '../constants';
 
 const initialState = {
-    lastProduct: null
+    lastProduct: null,
+    productList: []
     // promo: null,
     // promos: [], // hien thi tat ca promo
     // loading: false,
@@ -18,6 +19,17 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 lastProduct: action.payload
+            }
+        case GET_ALL_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                productList: action.payload
+            }
+        case UPDATE_INVENTORY_NUMBER_SUCCESS:
+        case UPDATE_INVENTORY_NUMBER_FAIL:
+        case GET_ALL_PRODUCTS_FAIL:
+            return {
+                ...state,
             }
         // case GET_PROMOS_BY_ADMIN_FAIL:
         //     return {
