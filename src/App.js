@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import store from './Store';
 import { Provider } from 'react-redux'
-import SearchToolComponent from './components/searchToolComponent'
-import ProductCard from './components/productCard'
+import Navbar from './components/core/navbar'
+import Footer from './components/core/footer'
+import Content from './components/core/content'
+import { BrowserRouter as Router, } from 'react-router-dom';
+import TransactionContent from './components/contents/transaction-content'
+import StorageContent from './components/contents/storage-content'
 
-// import {BarcodeComponent} from './components/barcode'
-
-function App() {
-  return (
-    <Provider store={store}>
-      {/* <div className="App">
-        <header className="App-header"> */}
-      <div style={{marginLeft: "2rem"}}>
-        <header>
-          <p>DEMO SCANER</p>
-          <SearchToolComponent />
-          <ProductCard />
-        </header>
-      </div>
-    </Provider>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <header style={{ marginBottom: '4rem' }}>
+            <Navbar />
+          </header>
+          <body style={{ margin: '1rem' }}>
+            <Content />
+            <p>hihi</p>
+          </body>
+          <footer>
+            <Footer />
+          </footer>
+        </Router>
+      </Provider>
+    )
+  }
 }
 
 export default App;
