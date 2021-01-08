@@ -20,6 +20,7 @@ class App extends Component {
           </header>
           <body style={{ margin: '1rem' }}>
             <Content />
+            <p>hihi</p>
           </body>
           <footer>
             <Footer />
